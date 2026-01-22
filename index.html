@@ -96,6 +96,24 @@
       margin: 0 auto;
     }
 
+    /* Increase left padding for headings and text inside the card while keeping boxes centered */
+    /* Note: h1 is inside .header-flex so don't double-apply padding to the h1 itself */
+    .card .header-flex,
+    .card h2,
+    .card p,
+    .card .team-grid {
+      padding-left: 32px;
+    }
+
+    @media (max-width: 500px) {
+      .card .header-flex,
+      .card h2,
+      .card p,
+      .card .team-grid {
+        padding-left: 16px;
+      }
+    }
+
     h1 {
       font-size: 48px;
       font-weight: 700; /* Bold */
@@ -116,12 +134,15 @@
     }
 
     .results-placeholder {
-      margin-top: 24px;
+      margin: 24px auto;
       padding: 32px;
       border: 2px solid #CCCCCC;
       border-radius: 12px;
       color: #777;
       max-width: 900px;
+      width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
     }
 
     /* Tech stack circles grid */
@@ -132,6 +153,8 @@
       justify-items: center;
       align-items: center;
       padding: 8px 0;
+      width: 100%;
+      box-sizing: border-box;
     }
     .tech-circle {
       width: 84px;
@@ -162,6 +185,9 @@
     @media (max-width: 600px) {
       .tech-stack-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
       .tech-circle { width: 64px; height: 64px; }
+    }
+    @media (max-width: 500px) {
+      .results-placeholder { padding: 20px; }
     }
 
     .team-grid {
