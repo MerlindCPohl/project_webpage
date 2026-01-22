@@ -100,17 +100,28 @@
     /* Note: h1 is inside .header-flex so don't double-apply padding to the h1 itself */
     .card .header-flex,
     .card h2,
-    .card p,
-    .card .team-grid {
+    .card p {
       padding-left: 32px;
     }
 
     @media (max-width: 500px) {
       .card .header-flex,
       .card h2,
-      .card p,
-      .card .team-grid {
+      .card p {
         padding-left: 16px;
+      }
+    }
+
+    /* Center the team grid inside the card so items align with other centered boxes */
+    .card .team-grid {
+      max-width: calc(100% - 64px);
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 500px) {
+      .card .team-grid {
+        max-width: calc(100% - 32px);
       }
     }
 
@@ -134,14 +145,17 @@
     }
 
     .results-placeholder {
+      /* make the placeholder match the horizontal inset of headings
+         by leaving a 32px gap on both sides inside the card */
       margin: 24px auto;
       padding: 32px;
       border: 2px solid #CCCCCC;
       border-radius: 12px;
       color: #777;
-      max-width: 900px;
-      width: 100%;
       box-sizing: border-box;
+      /* width = full available width minus left+right gap (32px each) */
+      width: calc(100% - 64px);
+      max-width: calc(100% - 64px);
       overflow: hidden;
     }
 
@@ -187,7 +201,7 @@
       .tech-circle { width: 64px; height: 64px; }
     }
     @media (max-width: 500px) {
-      .results-placeholder { padding: 20px; }
+      .results-placeholder { padding: 20px; width: calc(100% - 32px); max-width: calc(100% - 32px); }
     }
 
     .team-grid {
