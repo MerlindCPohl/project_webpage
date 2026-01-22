@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tech Study Finder</title>
+
+  <style>
+    a {
+      color: #1976d2;
+      text-decoration: none;
+    }
+    a:hover, a:focus {
+      text-decoration: underline;
+    }
+  </style>
+
+  <style>
+    .header-flex {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    .logo-header {
+      width: 120px;
+      height: auto;
+      flex-shrink: 0;
+    }
+    .main-title {
+      margin: 0;
+      font-size: 48px;
+      font-weight: 700;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      line-height: 1.05;
+    }
+    .mobile-break {
+      display: none;
+    }
+    @media (max-width: 500px) {
+      .header-flex {
+        gap: 12px;
+      }
+      .main-title {
+        font-size: 36px;
+      }
+      .logo-header {
+        width: 56px;
+      }
+      .mobile-break {
+        display: block;
+        width: 100%;
+        height: 0;
+      }
+    }
+    /* responsive break for H2: move following phrase to next line on small screens */
+    .h2-break {
+      display: inline;
+    }
+    @media (max-width: 600px) {
+      .h2-break {
+        display: block;
+        margin-top: 8px;
+      }
+    }
+    .card-wrapper {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+  </style>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px;
+      background-color: #EFEFEF;
+      font-family: 'Lexend Deca', sans-serif;
+      color: #111;
+    }
+
+    .card {
+      background-color: #FFFFFF;
+      border-radius: 20px; /* visually close to borderRadius: 2 (e.g. MUI scale) */
+      padding: 48px 56px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 48px;
+      font-weight: 700; /* Bold */
+      margin: 0 0 32px 0;
+    }
+
+    h2 {
+      font-size: 28px;
+      font-weight: 600;
+      margin: 48px 0 16px 0;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0 0 16px 0;
+      max-width: 900px;
+    }
+
+    .results-placeholder {
+      margin-top: 24px;
+      padding: 32px;
+      border: 2px dashed #CCCCCC;
+      border-radius: 12px;
+      color: #777;
+      max-width: 900px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .team-member {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .team-photo-placeholder {
+      width: 120px;
+      height: 120px;
+      background-color: #EFEFEF;
+      border-radius: 50%;
+      margin-bottom: 12px;
+    }
+
+    .team-name {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    @media (max-width: 900px) {
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      body {
+        padding: 20px;
+      }
+
+      .card {
+        padding: 32px 24px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card-wrapper">
+    <div class="card">
+      <div class="header-flex">
+    <h1 class="main-title">Tech Study<span class="mobile-break"><br></span>Finder</h1>
+    <img src="logo.png" alt="Logo" class="logo-header" />
+      </div>
+
+    <h2>Unser Arbeitsauftrag</h2>
+    <p>
+   <i> Hast du schon mal von Computervisualistik und Design, Populäre Musik und Medien oder Geodäsie und Geoinformation gehört?</i>
+    </p>
+    <p>
+    In Deutschland gibt es über 1.100 Informatik- und informatiknahe Studiengänge an mehr als 150 Hochschulen.
+    Für viele Studieninteressierte ist es dabei schwierig, sich angesichts dieser großen Menge zurecht finden und Studiengänge zu finden, 
+    die besonders gut zu ihnen und ihren Interessen passen. 
+    </p>
+    <p>
+    Gerade Studiengänge, die bewusst Zielgruppen ansprechen wollen, die sich nicht in einem „klassischen Informatikstudium“ sehen, 
+    gehen schnell in der Masse unter - dabei haben gerade diese Studiengänge das Potential, 
+    mehr FINTA-Personen für die Informatik zu begeistern und die Diversität in dieser Disziplin zu erhöhen!
+    </p>
+    <p>
+    Zusammen mit der <a href="https://gi.de/" target="_blank" rel="noopener noreferrer">Gesellschaft für Informatik e.V. (GI)</a> entwickeln wir deshalb eine App, die Studieninteressierte bei ihrer Studienwahl unterstützt.
+     </p>
+
+
+    <h2>Unser Produkt: <span class="h2-break">Tech Study Finder</span></h2>
+    <p>
+      Wir entwickeln eine Applikation, die Studieninteressierte dabei unterstützt, passende Informatik- und informatiknahe Studiengänge zu finden. 
+    </p>
+    <p>
+      Dafür werden in einem Quiz verschiedene Interessen und Stärken abgefragt.
+      In zwei unterschiedlichen Leveln können die Nutzer*innen gezielt Fragen beantworten.
+      Anschließend wird ihnen eine Auswahl passender Studiengänge vorgeschlagen, die die Kriterien bestmöglich erfüllen.
+    </p>
+    <p>
+      Die Nutzer*innen der App können Studiengänge nach verschiedenen Aspekten filtern und ihre Favoriten in einer Liste speichern.
+      Zusätzlich werden weiterführende Informationen zu den Studiengängen bereitgestellt, 
+      um den Studieninteressierten eine fundierte Entscheidung zu ermöglichen.
+    </p>
+
+    <h2>Unser Auftraggeber</h2>
+    <p>
+      Die <a href="https://gi.de/" target="_blank" rel="noopener noreferrer">Gesellschaft für Informatik e.V. (GI)</a> ist mit mehr als 17.000 persönlichen und 250 korporativen Mitgliedern 
+      die größte Fachgesellschaft für Informatik im deutschsprachigen Raum und sieht sich als Sprachrohr für alle Disziplinen in der Informatik.
+    </p>
+    <p>
+      Gemeinsam mit ihren Mitgliedern aus Wissenschaft, Wirtschaft, Verwaltung und Zivilgesellschaft treibt sie die Digitalisierung voran, 
+      stellt entscheidende Fragen und setzt neue Impulse – für eine gemeinwohlorientierte, inklusive und zukunftsweisende Informatik.
+    </p>
+
+
+    <h2>Unser Ergebnis</h2>
+    <div class="results-placeholder">
+      <p>Platzhalter für Screenshots und Beschreibung des finalen Produkts.</p>
+    </div>
+
+     <h2>Tech Stack</h2>
+    <div class="results-placeholder">
+      <p>Platzhalter für TechStack.</p>
+    </div>
+
+    <h2>Unser Team</h2>
+    <div class="team-grid">
+      <div class="team-member">
+        <div class="team-photo-placeholder"></div>
+        <div class="team-name">Paula Isbrecht</div>
+      </div>
+      <div class="team-member">
+        <div class="team-photo-placeholder"></div>
+        <div class="team-name">Johanna Lange</div>
+      </div>
+      <div class="team-member">
+        <div class="team-photo-placeholder"></div>
+        <div class="team-name">Noa Djamila Sauter</div>
+      </div>
+      <div class="team-member">
+        <div class="avatar_damaris"></div>
+        <div class="team-name">Damaris Liedtke</div>
+      </div>
+      <div class="team-member">
+        <div class="team-photo-placeholder"></div>
+        <div class="team-name">Merlind Pohl</div>
+      </div>
+    </div>
+    </div>
+  </div>
+</body>
+</html>
