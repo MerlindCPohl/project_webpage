@@ -6,8 +6,9 @@
   <title>Tech Study Finder</title>
 
   <style>
+    html { scroll-behavior: smooth; }
     a {
-      color: #1976d2;
+      color: #8aade4;
       text-decoration: none;
     }
     a:hover, a:focus {
@@ -21,6 +22,7 @@
       align-items: center;
       gap: 24px;
       margin-bottom: 32px;
+      position: relative;
     }
     .logo-header {
       width: 96px;
@@ -55,6 +57,23 @@
         height: 0;
       }
     }
+    /* On iPad mini and smaller, stack logo under the headline so nav isn't covered */
+    @media (max-width: 768px) {
+      .header-flex {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .main-title {
+        order: 1;
+      }
+      .logo-header {
+        order: 2;
+        width: 72px;
+        margin-top: 4px;
+        align-self: flex-start;
+      }
+    }
     /* responsive break for H2: move following phrase to next line on small screens */
     .h2-break {
       display: inline;
@@ -70,6 +89,52 @@
       max-width: 1100px;
       margin: 0 auto;
     }
+    /* Navigation burger button + dropdown */
+    .nav-button {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      font-size: 32px;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 10px;
+      line-height: 1;
+      z-index: 60;
+    }
+    @media (max-width: 768px) {
+      /* align with the top (first line 'Tech') on smaller screens */
+      .nav-button { top: 0; transform: none; }
+    }
+    @media (max-width: 500px) {
+      .nav-button { font-size: 26px; padding: 8px; }
+    }
+    .nav-button:focus { outline: 2px solid #1976d2; }
+    .dropdown-menu {
+      position: absolute;
+      top: 56px;
+      right: 18px;
+      background: #f2f2f2;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      padding: 8px 12px;
+      display: none;
+      min-width: 200px;
+      z-index: 200; /* sit above the burger */
+      opacity: 1; /* ensure not transparent */
+      pointer-events: auto;
+    }
+    .dropdown-menu.show { display: block; }
+    .dropdown-menu a {
+      display: block;
+      padding: 8px 6px;
+      color: #111;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+    .dropdown-menu a:hover { background: #FFBDEE; }
   </style>
 
   <!-- Google Font -->
@@ -157,6 +222,23 @@
       width: calc(100% - 64px);
       max-width: calc(100% - 64px);
       overflow: hidden;
+    }
+
+    /* Section separator: centered gradient line between major sections */
+    .section-sep {
+      height: 6px;
+      width: 40%;
+      max-width: 420px;
+      margin: 40px auto;
+      border-radius: 6px;
+      background: linear-gradient(90deg, #FFBDEE 0%, #AFCEFF 100%);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+    @media (max-width: 900px) {
+      .section-sep { width: 50%; }
+    }
+    @media (max-width: 500px) {
+      .section-sep { width: 70%; margin: 28px auto; height: 5px; }
     }
 
     /* Tech stack circles grid */
@@ -258,13 +340,22 @@
 </head>
 <body>
   <div class="card-wrapper">
+    <nav class="dropdown-menu" id="navMenu" aria-labelledby="navButton">
+      <a href="#arbeitsauftrag">Unser Arbeitsauftrag</a>
+      <a href="#produkt">Unser Produkt</a>
+      <a href="#auftraggeber">Unser Auftraggeber</a>
+      <a href="#ergebnis">Unser Ergebnis</a>
+      <a href="#techstack">Tech Stack</a>
+      <a href="#team">Unser Team</a>
+    </nav>
     <div class="card">
       <div class="header-flex">
-    <h1 class="main-title">Tech Study<span class="mobile-break"><br></span>Finder</h1>
+    <h1 id="top" class="main-title">Tech Study<span class="mobile-break"><br></span>Finder</h1>
     <img src="assets/logo.png" alt="Logo" class="logo-header" />
+    <button class="nav-button" id="navButton" aria-expanded="false" aria-controls="navMenu">☰</button>
       </div>
 
-    <h2>Unser Arbeitsauftrag</h2>
+    <h2 id="arbeitsauftrag">Unser Arbeitsauftrag</h2>
     <p>
    <i> Hast du schon mal von Computervisualistik und Design, Populäre Musik und Medien oder Geodäsie und Geoinformation gehört?</i>
     </p>
@@ -283,7 +374,8 @@
      </p>
 
 
-    <h2>Unser Produkt: <span class="h2-break">Tech Study Finder</span></h2>
+    <div class="section-sep" aria-hidden="true"></div>
+    <h2 id="produkt">Unser Produkt: <span class="h2-break">Tech Study Finder</span></h2>
    
     <p>
       In unserer Quiz-App werden Nutzer*innen gezielt nach ihren Interessen und Stärken befragt.
@@ -291,12 +383,13 @@
       Anschließend wird ihnen eine Auswahl passender Studiengänge vorgeschlagen, die die Kriterien bestmöglich erfüllen.
     </p>
     <p>
-      Die Nutzer*innen der App können Studiengänge nach verschiedenen Aspekten filtern und ihre Favoriten in einer Liste speichern.
+      Die Nutzer*innen der App können ihre Ergebnisse nach verschiedenen Aspekten filtern und ihre Favoriten in einer Liste speichern.
       Zusätzlich werden weiterführende Informationen zu den Studiengängen bereitgestellt, 
       um den Studieninteressierten eine fundierte Entscheidung zu ermöglichen.
     </p>
 
-    <h2>Unser Auftraggeber</h2>
+    <div class="section-sep" aria-hidden="true"></div>
+    <h2 id="auftraggeber">Unser Auftraggeber</h2>
     <p>
       Die <a href="https://gi.de/" target="_blank" rel="noopener noreferrer">Gesellschaft für Informatik e.V. (GI)</a> ist mit mehr als 17.000 persönlichen und 250 korporativen Mitgliedern 
       die größte Fachgesellschaft für Informatik im deutschsprachigen Raum und sieht sich als Sprachrohr für alle Disziplinen in der Informatik.
@@ -307,12 +400,14 @@
     </p>
 
 
-    <h2>Unser Ergebnis</h2>
+    <div class="section-sep" aria-hidden="true"></div>
+    <h2 id="ergebnis">Unser Ergebnis</h2>
     <div class="results-placeholder">
       <p>Platzhalter für Screenshots und Beschreibung des finalen Produkts.</p>
     </div>
 
-    <h2>Tech Stack</h2>
+    <div class="section-sep" aria-hidden="true"></div>
+    <h2 id="techstack">Tech Stack</h2>
     <div class="results-placeholder">
       <div class="tech-stack-grid">
         <div class="tech-circle"><a href="https://nodejs.org/en" target="_blank" rel="noopener noreferrer"><img src="assets/techstack/nodejs.png" class="tech-logo" alt="Node.js" /></a></div>
@@ -333,7 +428,8 @@
       </div>
     </div>
 
-    <h2>Unser Team</h2>
+    <div class="section-sep" aria-hidden="true"></div>
+    <h2 id="team">Unser Team</h2>
     <div class="team-grid">
       <div class="team-member">
         <img src="assets/avatare/avatar_paula.svg" alt="Paula Isbrecht" class="team-photo-placeholder" />
@@ -358,5 +454,35 @@
     </div>
     </div>
   </div>
+  <script>
+    (function(){
+      const btn = document.getElementById('navButton');
+      const menu = document.getElementById('navMenu');
+      function toggle(){
+        const isOpen = menu.classList.toggle('show');
+        btn.setAttribute('aria-expanded', String(isOpen));
+      }
+      btn.addEventListener('click', function(e){
+        e.stopPropagation();
+        toggle();
+      });
+      // close on outside click
+      document.addEventListener('click', function(e){
+        if (!menu.contains(e.target) && !btn.contains(e.target)){
+          menu.classList.remove('show');
+          btn.setAttribute('aria-expanded','false');
+        }
+      });
+      // close on escape
+      document.addEventListener('keydown', function(e){
+        if (e.key === 'Escape'){
+          menu.classList.remove('show');
+          btn.setAttribute('aria-expanded','false');
+        }
+      });
+      // close when navigating
+      menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ menu.classList.remove('show'); btn.setAttribute('aria-expanded','false'); }));
+    })();
+  </script>
 </body>
 </html>
