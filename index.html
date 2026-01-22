@@ -23,7 +23,7 @@
       margin-bottom: 32px;
     }
     .logo-header {
-      width: 120px;
+      width: 96px;
       height: auto;
       flex-shrink: 0;
     }
@@ -122,6 +122,39 @@
       border-radius: 12px;
       color: #777;
       max-width: 900px;
+    }
+
+    /* Tech stack circles grid */
+    .tech-stack-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 16px;
+      justify-items: center;
+      align-items: center;
+      padding: 8px 0;
+    }
+    .tech-circle {
+      width: 84px;
+      height: 84px;
+      background: #EFEFEF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .tech-circle img.tech-logo {
+      max-width: 64%;
+      max-height: 64%;
+      object-fit: contain;
+      display: block;
+    }
+    @media (max-width: 900px) {
+      .tech-stack-grid { grid-template-columns: repeat(5, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .tech-stack-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+      .tech-circle { width: 64px; height: 64px; }
     }
 
     .team-grid {
@@ -234,31 +267,47 @@
       <p>Platzhalter für Screenshots und Beschreibung des finalen Produkts.</p>
     </div>
 
-     <h2>Tech Stack</h2>
+    <h2>Tech Stack</h2>
     <div class="results-placeholder">
-      <p>Platzhalter für TechStack.</p>
+      <div class="tech-stack-grid">
+        <div class="tech-circle"><!-- add <img src="assets/tech1.svg" class="tech-logo" alt=""> --></div>
+        <div class="tech-circle"><!-- add <img src="assets/tech2.svg" class="tech-logo" alt=""> --></div>
+        <div class="tech-circle"><!-- add <img src="assets/tech3.svg" class="tech-logo" alt=""> --></div>
+        <div class="tech-circle"><!-- add <img src="assets/tech4.svg" class="tech-logo" alt=""> --></div>
+        <div class="tech-circle"><!-- add <img src="assets/tech5.svg" class="tech-logo" alt=""> --></div>
+        <div class="tech-circle"><!-- add <img src="assets/tech6.svg" class="tech-logo" alt=""> --></div>
+        <div class="tech-circle"><!-- add <img src="assets/tech7.svg" class="tech-logo" alt=""> --></div>
+
+        <div class="tech-circle"><!-- add <img src="assets/tech8.svg" class="tech-logo" alt=""> --></div>
+        <div class="tech-circle"><!-- add <img src="assets/tech9.svg" class="tech-logo" alt=""> --></div>
+        <div class="tech-circle"><!-- add <img src="assets/tech10.svg" class="tech-logo" alt=""> --></div>
+        <div class="tech-circle"><!-- add <img src="assets/tech11.svg" class="tech-logo" alt=""> --></div>
+        <div class="tech-circle"><!-- add <img src="assets/tech12.svg" class="tech-logo" alt=""> --></div>
+        <div class="tech-circle"><!-- add <img src="assets/tech13.svg" class="tech-logo" alt=""> --></div>
+        <div class="tech-circle"><!-- add <img src="assets/tech14.svg" class="tech-logo" alt=""> --></div>
+      </div>
     </div>
 
     <h2>Unser Team</h2>
     <div class="team-grid">
       <div class="team-member">
-        <img src="assets/avatar_paula.svg" alt="Paula Isbrecht" class="team-photo-placeholder" />
+        <img src="assets/avatare/avatar_paula.svg" alt="Paula Isbrecht" class="team-photo-placeholder" />
         <div class="team-name">Paula Isbrecht</div>
       </div>
       <div class="team-member">
-        <img src="assets/avatar_noa%20(1).svg" alt="Noa Djamila Sauter" class="team-photo-placeholder" />
+        <img src="assets/avatare/avatar_noa%20(1).svg" alt="Noa Djamila Sauter" class="team-photo-placeholder" />
         <div class="team-name">Noa Djamila Sauter</div>
       </div>
       <div class="team-member">
-        <img src="assets/avatar_johanna.svg" alt="Johanna Lange" class="team-photo-placeholder" />
+        <img src="assets/avatare/avatar_johanna.svg" alt="Johanna Lange" class="team-photo-placeholder" />
         <div class="team-name">Johanna Lange</div>
       </div>
       <div class="team-member">
-        <img src="assets/avatar_damaris.svg" alt="Damaris Liedtke" class="team-photo-placeholder" />
+        <img src="assets/avatare/avatar_damaris.svg" alt="Damaris Liedtke" class="team-photo-placeholder" />
         <div class="team-name">Damaris Liedtke</div>
       </div>
       <div class="team-member">
-        <img src="assets/avatar_merlind.svg" alt="Merlind Pohl" class="team-photo-placeholder" />
+        <img src="assets/avatare/avatar_merlind.svg" alt="Merlind Pohl" class="team-photo-placeholder" />
         <div class="team-name">Merlind Pohl</div>
       </div>
     </div>
