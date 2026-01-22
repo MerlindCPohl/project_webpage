@@ -26,8 +26,22 @@
     }
     .logo-header {
       width: 96px;
-      height: auto;
+      height: 96px;
       flex-shrink: 0;
+      display: block;
+      object-fit: contain;
+    }
+    /* gradient logo using the provided SVG as a mask */
+    .logo-gradient {
+      width: 96px;
+      height: 96px;
+      background: linear-gradient(90deg, #FFBDEE 0%, #AFCEFF 100%);
+      -webkit-mask: url('assets/logo-Kopie.svg') no-repeat center/contain;
+      mask: url('assets/logo-Kopie.svg') no-repeat center/contain;
+      -webkit-mask-size: contain;
+      mask-size: contain;
+      flex-shrink: 0;
+      display: inline-block;
     }
     .main-title {
       margin: 0;
@@ -37,6 +51,11 @@
       flex-wrap: wrap;
       align-items: center;
       line-height: 1.05;
+      /* gradient text from pink to blue */
+      background: linear-gradient(90deg, #FFBDEE 0%, #AFCEFF 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
     .mobile-break {
       display: none;
@@ -48,8 +67,10 @@
       .main-title {
         font-size: 36px;
       }
-      .logo-header {
+      .logo-header,
+      .logo-gradient {
         width: 56px;
+        height: 56px;
       }
       .mobile-break {
         display: block;
@@ -67,9 +88,11 @@
       .main-title {
         order: 1;
       }
-      .logo-header {
+      .logo-header,
+      .logo-gradient {
         order: 2;
         width: 72px;
+        height: 72px;
         margin-top: 4px;
         align-self: flex-start;
       }
@@ -122,15 +145,15 @@
       padding: 8px 12px;
       display: none;
       min-width: 200px;
-      z-index: 200; /* sit above the burger */
-      opacity: 1; /* ensure not transparent */
+      z-index: 200; 
+      opacity: 1; 
       pointer-events: auto;
     }
     .dropdown-menu.show { display: block; }
     .dropdown-menu a {
       display: block;
       padding: 8px 6px;
-      color: #111;
+        color: #3F3E42;
       text-decoration: none;
       border-radius: 8px;
     }
@@ -150,7 +173,7 @@
       padding: 40px;
       background-color: #EFEFEF;
       font-family: 'Lexend Deca', sans-serif;
-      color: #111;
+      color: #3F3E42;
     }
 
     .card {
@@ -227,18 +250,21 @@
     /* Section separator: centered gradient line between major sections */
     .section-sep {
       height: 6px;
-      width: 40%;
-      max-width: 420px;
+      /* match the same horizontal inset as headings and boxes: 32px on each side */
+      width: calc(100% - 64px);
+      max-width: calc(100% - 64px);
       margin: 40px auto;
       border-radius: 6px;
       background: linear-gradient(90deg, #FFBDEE 0%, #AFCEFF 100%);
       box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      box-sizing: border-box;
     }
     @media (max-width: 900px) {
-      .section-sep { width: 50%; }
+      .section-sep { width: calc(100% - 48px); max-width: calc(100% - 48px); }
     }
     @media (max-width: 500px) {
-      .section-sep { width: 70%; margin: 28px auto; height: 5px; }
+      /* on small screens reduce the horizontal inset to match mobile padding */
+      .section-sep { width: calc(100% - 32px); max-width: calc(100% - 32px); margin: 28px auto; height: 5px; }
     }
 
     /* Tech stack circles grid */
@@ -351,7 +377,28 @@
     <div class="card">
       <div class="header-flex">
     <h1 id="top" class="main-title">Tech Study<span class="mobile-break"><br></span>Finder</h1>
-    <img src="assets/logo.png" alt="Logo" class="logo-header" />
+    <svg class="logo-header" viewBox="0 0 416.000000 385.000000" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tech Study Finder logo">
+      <defs>
+        <linearGradient id="logoGrad" x1="0%" x2="100%">
+          <stop offset="0%" stop-color="#FFBDEE" />
+          <stop offset="100%" stop-color="#AFCEFF" />
+        </linearGradient>
+      </defs>
+      <g transform="translate(0.000000,385.000000) scale(0.100000,-0.100000)" fill="url(#logoGrad)" stroke="none">
+        <path d="M1210 3354 c-433 -434 -481 -485 -450 -480 85 15 314 18 403 6 124
+        -16 267 -66 363 -125 76 -47 294 -250 294 -273 0 -10 -253 -166 -314 -194 -24
+        -10 -29 -8 -61 30 -48 56 -169 135 -246 161 -96 33 -235 47 -314 34 -94 -16
+        -239 -89 -307 -155 -128 -123 -189 -308 -167 -504 34 -305 247 -515 540 -531
+        242 -14 418 75 500 252 15 33 30 70 34 83 l6 22 -255 0 -256 0 0 150 0 150
+        482 0 481 0 -7 -117 c-11 -205 -56 -351 -147 -484 -145 -212 -343 -339 -624
+        -400 -72 -16 -332 -17 -392 -2 -24 6 -43 8 -43 4 0 -10 965 -971 975 -971 6 0
+        224 214 485 475 l475 475 -208 0 -207 0 0 965 0 965 204 0 204 0 -471 475
+        c-260 261 -477 475 -482 475 -6 0 -228 -219 -495 -486z"/>
+        <path d="M2670 1925 c0 -520 3 -945 7 -945 3 0 217 213 474 473 258 259 469
+        472 469 472 0 0 -212 213 -470 473 -258 259 -471 472 -474 472 -4 0 -6 -425
+        -6 -945z"/>
+      </g>
+    </svg>
     <button class="nav-button" id="navButton" aria-expanded="false" aria-controls="navMenu">☰</button>
       </div>
 
