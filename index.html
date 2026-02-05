@@ -164,7 +164,7 @@
     @media (max-width: 500px) {
       .nav-button { font-size: 26px; padding: 8px; }
     }
-    .nav-button:focus { outline: 2px solid #1976d2; }
+    .nav-button:focus { outline: none; }
     /* make burger/menu icon same grey as text */
     .nav-button { color: #3F3E42; }
     /* Desktop-only: place logo to the left of the title on wider screens */
@@ -335,24 +335,37 @@
       overflow: hidden;
     }
 
-    /* Section separator: centered gradient line between major sections */
+    /* Section separator: garland with rounded pennants */
     .section-sep {
-      height: 6px;
-      /* match the same horizontal inset as headings and boxes: 32px on each side */
-      width: calc(100% - 64px);
-      max-width: calc(100% - 64px);
-      margin: 40px auto;
-      border-radius: 6px;
-      background: linear-gradient(90deg, #FFBDEE 0%, #AFCEFF 100%);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      height: 60px;
+      /* match the same horizontal padding as text elements: 32px on each side */
+      padding: 0 32px;
+      margin: 40px 0;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 0;
       box-sizing: border-box;
+      width: 100%;
     }
-    @media (max-width: 900px) {
-      .section-sep { width: calc(100% - 48px); max-width: calc(100% - 48px); }
+    
+    .garland-pennant {
+      width: 25%;
+      height: 50px;
+      background-color: currentColor;
+      border-radius: 50% 50% 0 0;
+      flex-shrink: 0;
     }
+    
+    .garland-pennant:nth-child(1) { background-color: #FFBDEE; }
+    .garland-pennant:nth-child(2) { background-color: #E7F9CE; }
+    .garland-pennant:nth-child(3) { background-color: #D8E7FF; }
+    .garland-pennant:nth-child(4) { background-color: #FFF8AD; }
+    
     @media (max-width: 500px) {
-      /* on small screens reduce the horizontal inset to match mobile padding */
-      .section-sep { width: calc(100% - 32px); max-width: calc(100% - 32px); margin: 28px auto; height: 5px; }
+      /* on small screens reduce the horizontal padding to match mobile text padding */
+      .section-sep { padding: 0 16px; margin: 28px 0; height: 45px; }
+      .garland-pennant { height: 40px; }
     }
 
     /* Tech stack circles grid */
@@ -503,6 +516,12 @@
     <button class="nav-button" id="navButton" aria-expanded="false" aria-controls="navMenu">☰</button>
       </div>
 
+    <div class="section-sep" aria-hidden="true">
+      <div class="garland-pennant"></div>
+      <div class="garland-pennant"></div>
+      <div class="garland-pennant"></div>
+      <div class="garland-pennant"></div>
+    </div>
     <h2 id="arbeitsauftrag">Unser Arbeitsauftrag</h2>
     <p>
    <i> Hast du schon mal von "Computervisualistik und Design", "Populäre Musik und Medien" oder "Geodäsie und Geoinformation" gehört?</i>
@@ -522,7 +541,12 @@
      </p>
 
 
-    <div class="section-sep" aria-hidden="true"></div>
+    <div class="section-sep" aria-hidden="true">
+      <div class="garland-pennant"></div>
+      <div class="garland-pennant"></div>
+      <div class="garland-pennant"></div>
+      <div class="garland-pennant"></div>
+    </div>
     <h2 id="produkt">Unser Produkt: <span class="h2-break">Tech Study Finder</span></h2>
    
     <p>
@@ -536,7 +560,12 @@
       um den Studieninteressierten eine fundierte Entscheidung zu ermöglichen.
     </p>
 
-    <div class="section-sep" aria-hidden="true"></div>
+    <div class="section-sep" aria-hidden="true">
+      <div class="garland-pennant"></div>
+      <div class="garland-pennant"></div>
+      <div class="garland-pennant"></div>
+      <div class="garland-pennant"></div>
+    </div>
     <h2 id="auftraggeber">Unser Auftraggeber</h2>
     <p>
       Die <a href="https://gi.de/" target="_blank" rel="noopener noreferrer">Gesellschaft für Informatik e.V. (GI)</a> ist mit mehr als 17.000 persönlichen und 250 korporativen Mitgliedern 
@@ -548,13 +577,23 @@
     </p>
 
 
-    <div class="section-sep" aria-hidden="true"></div>
+    <div class="section-sep" aria-hidden="true">
+      <div class="garland-pennant"></div>
+      <div class="garland-pennant"></div>
+      <div class="garland-pennant"></div>
+      <div class="garland-pennant"></div>
+    </div>
     <h2 id="ergebnis">Unser Ergebnis</h2>
     <div class="results-placeholder">
       <p>Platzhalter für Screenshots und Beschreibung des finalen Produkts.</p>
     </div>
 
-    <div class="section-sep" aria-hidden="true"></div>
+    <div class="section-sep" aria-hidden="true">
+      <div class="garland-pennant"></div>
+      <div class="garland-pennant"></div>
+      <div class="garland-pennant"></div>
+      <div class="garland-pennant"></div>
+    </div>
     <h2 id="techstack">Tech Stack</h2>
     <div class="results-placeholder">
       <div class="tech-stack-grid">
@@ -576,7 +615,12 @@
       </div>
     </div>
 
-    <div class="section-sep" aria-hidden="true"></div>
+    <div class="section-sep" aria-hidden="true">
+      <div class="garland-pennant"></div>
+      <div class="garland-pennant"></div>
+      <div class="garland-pennant"></div>
+      <div class="garland-pennant"></div>
+    </div>
     <h2 id="team">Unser Team</h2>
     <div class="team-grid">
       <div class="team-member">
