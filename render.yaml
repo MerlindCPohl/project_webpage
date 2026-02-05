@@ -2,10 +2,10 @@ services:
   - type: web
     name: tech-study-finder
     env: python
-    region: frankfurt
+    region: berlin
     plan: free
     buildCommand: pip install -r requirements.txt
-    startCommand: python app.py
+    startCommand: gunicorn app:app
     envVars:
       - key: PYTHON_VERSION
         value: 3.11
