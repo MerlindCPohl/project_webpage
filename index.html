@@ -236,7 +236,7 @@
 
     body {
       margin: 0;
-      padding: 10px;
+      padding: 40px;
       background-color: #EFEFEF;
       font-family: 'Lexend Deca', sans-serif;
       color: #3F3E42;
@@ -349,6 +349,7 @@
     @media (max-width: 500px) {
       .section-sep { padding: 0; margin: 30px 0 30px 0; }
     }
+    
 /* Container Box */
 .results-placeholder {
   width: 100%;
@@ -357,13 +358,11 @@
   border: 1px solid #CCC;
   border-radius: 12px;
   box-sizing: border-box;
-  overflow: hidden; /* Verhindert, dass bei Fehlern etwas rausragt */
+  overflow: hidden; 
 }
 
-/* Das Gitter */
 .tech-stack-grid {
   display: grid;
-  /* 7 Spalten auf Desktop */
   grid-template-columns: repeat(7, 1fr); 
   gap: 20px 10px; 
   justify-items: center;
@@ -371,11 +370,8 @@
   width: 100%;
 }
 
-/* Die Kreise - Jetzt mit dynamischer Breite */
 .tech-circle {
-  /* Nutzt 12% der Containerbreite, aber maximal 75px */
   width: clamp(50px, 12vw, 75px); 
-  /* Erhält das 1:1 Seitenverhältnis für perfekte Kreise */
   aspect-ratio: 1 / 1; 
   height: auto; 
   background: #EFEFEF;
@@ -401,13 +397,11 @@
   display: block;
 }
 
-/* Tablet: Umbruch früher ansetzen, um Quetschen zu vermeiden */
 @media (max-width: 1000px) {
   .tech-stack-grid {
     grid-template-columns: repeat(4, 1fr);
   }
   .tech-circle {
-    /* Auf Tablets etwas mehr Platz pro Kreis erlauben */
     width: clamp(60px, 18vw, 80px);
   }
 }
@@ -589,8 +583,9 @@
     </div>
     <h2 id="ergebnis">Unser Ergebnis</h2>
     <div class="iphone-x">
-  <div class="side">
-    <div class="screen">
+      <link rel="stylesheet" href="iphone.css">
+     <div class="side">
+     <div class="screen">
       <video autoplay muted loop playsinline>
         <source src="assets/app-demo.mp4" type="video/mp4">
         Dein Browser unterstützt kein Video.
