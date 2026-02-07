@@ -302,7 +302,7 @@
     }
 
     .results-placeholder {
-      margin: 24px auto;
+      margin: 0px;
       padding: 32px;
       border: 2px solid #CCCCCC;
       border-radius: 12px;
@@ -350,57 +350,67 @@
       .section-sep { padding: 0; margin: 30px 0 30px 0; }
     }
 
-    /* Tech stack circles grid */
-    .tech-stack-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(84px, 1fr));
-      gap: 16px;
-      justify-items: center;
-      align-items: center;
-      padding: 8px 0;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    .tech-circle {
-      width: 84px;
-      height: 84px;
-      background: #EFEFEF;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-    .tech-circle > a {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      align-items: center;
-      justify-content: center;
-    }
-    .tech-circle img.tech-logo {
-      max-width: 64%;
-      max-height: 64%;
-      object-fit: contain;
-      display: block;
-    }
-    @media (max-width: 900px) {
-      .tech-stack-grid { grid-template-columns: repeat(5, 1fr); }
-    }
-    @media (max-width: 736px) {
-      .tech-stack-grid { grid-template-columns: repeat(4, 1fr); gap: 12px; }
-    }
-    @media (max-width: 600px) {
-      .tech-stack-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
-      .tech-circle { width: 64px; height: 64px; }
-    }
-    @media (max-width: 450px) {
-      .tech-stack-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-      .tech-circle { width: 56px; height: 56px; }
-    }
-    @media (max-width: 500px) {
-      .results-placeholder { padding: 20px; width: calc(100% - 32px); max-width: calc(100% - 32px); }
-    }
+   /* Container für die Box */
+.results-placeholder {
+  width: 100%;
+  padding: 30px 20px; 
+  margin: 24px 0;
+  border: 1px solid #CCC; 
+  border-radius: 12px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.tech-stack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); 
+  gap: 15px;
+  justify-content: center; 
+  justify-items: center;   
+  align-items: center;
+  width: 100%;
+}
+
+.tech-circle {
+  width: 70px; /* Etwas kleiner für besseres Spacing */
+  height: 70px;
+  background: #EFEFEF;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-shrink: 0;
+}
+
+.tech-circle a {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.tech-circle img {
+  max-width: 60%;
+  max-height: 60%;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 500px) {
+  .tech-stack-grid {
+    grid-template-columns: repeat(auto-fill, minmax(55px, 1fr));
+    gap: 10px;
+  }
+  .tech-circle {
+    width: 55px;
+    height: 55px;
+  }
+}
 
     .team-grid {
       display: grid;
@@ -485,7 +495,7 @@
       <a href="#produkt">Unser Produkt</a>
       <a href="#auftraggeber">Unser Auftraggeber</a>
       <a href="#ergebnis">Unser Ergebnis</a>
-      <a href="#techstack">Tech Stack</a>
+      <a href="#techstack"> Unser Tech Stack</a>
       <a href="#team">Unser Team</a>
     </nav>
     <div class="card">
@@ -566,9 +576,17 @@
       <div class="garland-pennant"></div>
     </div>
     <h2 id="ergebnis">Unser Ergebnis</h2>
-    <div class="results-placeholder">
-      <p>Platzhalter für Screenshots und Beschreibung des finalen Produkts.</p>
+    <div class="iphone-x">
+  <div class="side">
+    <div class="screen">
+      <video autoplay muted loop playsinline>
+        <source src="assets/app-demo.mp4" type="video/mp4">
+        Dein Browser unterstützt kein Video.
+      </video>
     </div>
+  </div>
+  <div class="case"></div>
+</div>
 
     <div class="section-sep" aria-hidden="true">
       <div class="garland-pennant"></div>
@@ -576,7 +594,7 @@
       <div class="garland-pennant"></div>
       <div class="garland-pennant"></div>
     </div>
-    <h2 id="techstack">Tech Stack</h2>
+    <h2 id="techstack">Unser Tech Stack</h2>
     <div class="results-placeholder">
       <div class="tech-stack-grid">
         <div class="tech-circle"><a href="https://nodejs.org/en" target="_blank" rel="noopener noreferrer"><img src="assets/techstack/nodejs.png" class="tech-logo" alt="Node.js" /></a></div>
