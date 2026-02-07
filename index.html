@@ -31,13 +31,11 @@
       display: block;
       object-fit: contain;
     }
-    /* gradient logo using the provided SVG as a mask */
     .logo{
       width: 96px;
       height: 96px;
       background-color: #3F3E42;
       margin-right: 16px;
-      /* SVG mask for WebKit and modern browsers */
       -webkit-mask-image: url('assets/logo-Kopie.svg');
       -webkit-mask-repeat: no-repeat;
       -webkit-mask-position: center;
@@ -46,7 +44,6 @@
       mask-repeat: no-repeat;
       mask-position: center;
       mask-size: contain;
-      /* Fallback: show the SVG as a background if masks unsupported */
       background-image: url('assets/logo-Kopie.svg');
       background-repeat: no-repeat;
       background-position: center;
@@ -55,7 +52,6 @@
       display: inline-block;
     }
 
-    /* where mask is supported, hide the background-image fallback so color shows through */
     @supports (mask-image: url('data:image/svg+xml;charset=utf-8,<svg></svg>')) {
       .logo { background-image: none; }
     }
@@ -65,7 +61,6 @@
       font-weight: 700;
       display: block;
       line-height: 1.05;
-      /* solid headline color */
       background: none;
       -webkit-background-clip: unset;
       background-clip: unset;
@@ -75,8 +70,8 @@
         display: flex;
         flex-direction: column;
         gap: 12px;
-        flex: 1 1 auto; /* take remaining space between logo and nav button */
-        min-width: 0; /* allow shrinking on narrow viewports */
+        flex: 1 1 auto; 
+        min-width: 0; 
       }
       .subheadline {
         font-family: 'Roboto', sans-serif;
@@ -87,8 +82,6 @@
         line-height: 1.1;
       }
       .title-block .main-title { display: block; width: 100%; }
-      /* both break spans follow the same show/hide rules so the
-         subheadline breaks at the same points as the main title */
       .sub-break, .mobile-break { display: none; }
     @media (max-width: 500px) {
       .header-flex {
@@ -101,14 +94,13 @@
         width: 56px;
         height: 56px;
       }
-      /* show both break spans when the title wraps on small screens */
       .mobile-break, .sub-break { display: block; width: 100%; height: 0; }
     }
-    /* On iPad mini and smaller, stack logo above the headline (centered) */
+
     @media (max-width: 768px) {
       .header-flex {
         flex-direction: column;
-        align-items: flex-start; /* align to left inset of the card */
+        align-items: flex-start; 
         gap: 8px;
       }
       .logo-header,
@@ -117,18 +109,16 @@
         width: 72px;
         height: 72px;
         margin: 0;
-        align-self: flex-start; /* ensure logo sits at left edge of header-flex */
+        align-self: flex-start; 
       }
-      /* explicitly order headline and subheadline on mobile */
       .title-block .main-title {
         order: 0;
-        text-align: left; /* keep title attached to left inset */
+        text-align: left; 
       }
       .title-block .subheadline {
         order: 1;
       }
     }
-    /* responsive break for H2: move following phrase to next line on small screens */
     .h2-break {
       display: inline;
     }
@@ -158,16 +148,14 @@
       z-index: 60;
     }
     @media (max-width: 768px) {
-      /* align with the top (first line 'Tech') on smaller screens */
       .nav-button { top: 0; transform: none; }
     }
     @media (max-width: 500px) {
       .nav-button { font-size: 26px; padding: 8px; }
     }
     .nav-button:focus { outline: none; }
-    /* make burger/menu icon same grey as text */
     .nav-button { color: #3F3E42; }
-    /* Desktop-only: place logo to the left of the title on wider screens */
+
     @media (min-width: 769px) {
       .header-flex {
         flex-direction: row;
@@ -182,15 +170,12 @@
         height: 96px;
         align-self: center;
       }
-      /* ensure the headline stays above the subheadline inside the
-         vertical `.title-block` flex column by explicitly setting order */
+
       .title-block .main-title { order: 0; }
       .title-block .subheadline { order: 1; }
       .title-block { margin-left: -10px; }
     }
-    /* When the viewport is slightly wider than mobile but narrow enough that
-       the headline would collide with the burger, force the title onto its
-       own line so it never overlaps the menu button. Target 768–846px. */
+
     @media (min-width: 768px) and (max-width: 846px) {
       .header-flex {
         align-items: flex-start;
@@ -260,21 +245,18 @@
 
     .card {
       background-color: #FFFFFF;
-      border-radius: 20px; /* visually close to borderRadius: 2 (e.g. MUI scale) */
+      border-radius: 20px; 
       padding: 48px 56px;
       max-width: 1100px;
       margin: 0 auto;
     }
 
-    /* Increase left padding for headings and text inside the card while keeping boxes centered */
-    /* Note: h1 is inside .header-flex so don't double-apply padding to the h1 itself */
     .card .header-flex,
     .card h2,
     .card p {
       padding-left: 32px;
     }
 
-    /* remove padding from subheadline so it aligns with headline */
     .card .subheadline {
       padding-left: 3px;
      
@@ -288,7 +270,6 @@
       }
     }
 
-    /* Center the team grid inside the card so items align with other centered boxes */
     .card .team-grid {
       max-width: calc(100% - 64px);
       margin: 0 auto;
@@ -321,15 +302,12 @@
     }
 
     .results-placeholder {
-      /* make the placeholder match the horizontal inset of headings
-         by leaving a 32px gap on both sides inside the card */
       margin: 24px auto;
       padding: 32px;
       border: 2px solid #CCCCCC;
       border-radius: 12px;
       color: #777;
       box-sizing: border-box;
-      /* width = full available width minus left+right gap (32px each) */
       width: 100%;
       max-width: 100%;
       overflow: hidden;
@@ -337,21 +315,21 @@
 
     /* Section separator: garland with rounded pennants */
     .section-sep {
-      height: 60px;
-      /* match the same horizontal padding as text elements: 32px on each side */
+      height: auto;
       padding: 0 32px;
-      margin: 24px 0;
+      margin: 30px 0 30px 0;
       display: flex;
       justify-content: flex-start;
       align-items: flex-start;
       gap: 0;
       box-sizing: border-box;
       width: 100%;
+      overflow: hidden;
     }
     
     .garland-pennant {
       width: 25%;
-      height: 50px;
+      aspect-ratio: 1;
       background-color: currentColor;
       border-radius: 50% 50% 0 0;
       flex-shrink: 0;
@@ -363,9 +341,7 @@
     .garland-pennant:nth-child(4) { background-color: #FFF8AD; }
     
     @media (max-width: 500px) {
-      /* on small screens reduce the horizontal padding to match mobile text padding */
-      .section-sep { padding: 0 16px; margin: 28px 0; height: 45px; }
-      .garland-pennant { height: 40px; }
+      .section-sep { padding: 0 16px; margin: 28px 0 60px 0; }
     }
 
     /* Tech stack circles grid */
