@@ -136,13 +136,13 @@
     /* Navigation burger button + dropdown */
     .nav-button {
       position: absolute;
-      right: 18px;
+      right: -10px;
       top: 0;
       background: transparent;
       border: none;
       font-size: 32px;
       cursor: pointer;
-      padding: 10px;
+      padding: 0px;
       border-radius: 10px;
       line-height: 1;
       z-index: 60;
@@ -254,11 +254,11 @@
     .card .header-flex,
     .card h2,
     .card p {
-      padding-left: 32px;
+      padding-left: 0;
     }
 
     .card .subheadline {
-      padding-left: 3px;
+      padding-left: 0;
      
     }
 
@@ -266,7 +266,7 @@
       .card .header-flex,
       .card h2,
       .card p {
-        padding-left: 16px;
+        padding-left: 0;
       }
     }
 
@@ -311,16 +311,18 @@
       width: 100%;
       max-width: 100%;
       overflow: hidden;
+      line-height: 0;
     }
 
     /* Section separator: garland with rounded pennants */
     .section-sep {
       height: auto;
-      padding: 0 32px;
-      margin: 30px 0 30px 0;
+      padding: 0;
+      margin-top: 60px;
+      margin-bottom: 60px;
       display: flex;
       justify-content: flex-start;
-      align-items: flex-start;
+      align-items: flex-end;
       gap: 0;
       box-sizing: border-box;
       width: 100%;
@@ -329,10 +331,14 @@
     
     .garland-pennant {
       width: 25%;
-      aspect-ratio: 1;
+      aspect-ratio: 2/1;
       background-color: currentColor;
       border-radius: 50% 50% 0 0;
-      flex-shrink: 0;
+      flex-shrink: 0; 
+      aspect-ratio: 2 / 1; 
+      border-top-left-radius: 100vw;
+      border-top-right-radius: 100vw;
+
     }
     
     .garland-pennant:nth-child(1) { background-color: #FFBDEE; }
@@ -341,7 +347,7 @@
     .garland-pennant:nth-child(4) { background-color: #FFF8AD; }
     
     @media (max-width: 500px) {
-      .section-sep { padding: 0 16px; margin: 28px 0 60px 0; }
+      .section-sep { padding: 0; margin: 30px 0 30px 0; }
     }
 
     /* Tech stack circles grid */
