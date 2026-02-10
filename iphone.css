@@ -1,15 +1,73 @@
 
+.iphone-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 50px;
+  margin: 0px 0 0px 0;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+  
+}
+
+.iphone-notes-all {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 300px;
+  margin-top: 60px;
+  font-size: 15px;
+}
+
+.iphone-notes {
+  flex: 1;
+  min-width: 200px;
+  max-width: 100%;
+  margin-bottom: -10px;
+}
+
+.iphone-notes ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.iphone-notes li {
+  margin-bottom: 48px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #333;
+  position: relative;
+  padding-left: 16px;
+}
+
+.iphone-notes li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #8aade4;
+  font-weight: bold;
+}
+
 .iphone-x {
   position: relative;
   width: 280px; 
   height: auto;
   aspect-ratio: 9 / 19.5; 
-  margin: 40px auto;
   background: #222; 
   border-radius: 40px;
   border: 8px solid #3F3E42;
   box-shadow: 0 20px 40px rgba(0,0,0,0.15);
   overflow: hidden;
+  flex-shrink: 0;
+  margin-left: auto;
+  margin-right: 150px;
+  margin-top: -20px;
+  margin-bottom: 55px;
 }
 
 .iphone-x::before {
@@ -42,6 +100,23 @@
   object-fit: cover; 
 }
 
+@media (max-width: 900px) {
+  .iphone-container {
+    flex-direction: column;
+    gap: 35px;
+    align-items: center;
+  }
+
+  .iphone-notes-all {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .iphone-x {
+    margin-left: 0;
+  }
+}
+
 @media (max-width: 500px) {
   .iphone-x {
     width: 220px;
@@ -51,4 +126,11 @@
     width: 100px;
     height: 18px;
   }
+
+  .iphone-notes-all {
+    min-width: auto;
+    margin-top: 40px;
+
+  }
+
 }
