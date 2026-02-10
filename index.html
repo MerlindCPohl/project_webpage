@@ -585,16 +585,13 @@
     <h2 id="ergebnis">Unser Ergebnis</h2>
     <div class="iphone-x">
       <link rel="stylesheet" href="iphone.css">
-     <div class="side">
-     <div class="screen">
-      <video autoplay muted loop playsinline>
-        <source src="assets/app-demo.mp4" type="video/mp4">
-        Dein Browser unterstützt kein Video.
-      </video>
+      <div class="screen">
+        <video autoplay muted loop playsinline>
+          <source src="assets/App_Demo.MP4" type="video/mp4">
+          Dein Browser unterstützt kein Video.
+        </video>
+      </div>
     </div>
-  </div>
-  <div class="case"></div>
-</div>
 
     <div class="section-sep" aria-hidden="true">
       <div class="garland-pennant"></div>
@@ -683,6 +680,15 @@
       // close when navigating
       menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ menu.classList.remove('show'); btn.setAttribute('aria-expanded','false'); }));
     })();
+
+    // Ensure video loops from the beginning
+    const video = document.querySelector('.iphone-x video');
+    if (video) {
+      video.addEventListener('ended', function() {
+        this.currentTime = 0;
+        this.play();
+      });
+    }
   </script>
 </body>
 </html>
